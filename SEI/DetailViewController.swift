@@ -16,6 +16,8 @@ class DetailViewController: UITableViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		self.navigationController?.navigationBar.barStyle		= .BlackTranslucent
+		self.navigationController?.navigationBar.tintColor	= UIColor.whiteColor()
 	}
 	
 	override func didReceiveMemoryWarning() {

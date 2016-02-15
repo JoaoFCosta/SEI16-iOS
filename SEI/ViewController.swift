@@ -23,11 +23,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		tableView.delegate		= self
 		tableView.dataSource	= self
 		
+		// Load 'agenda.json' file.
 		if let path = NSBundle.mainBundle().pathForResource("agenda", ofType: "json") {
 			if let data = NSData(contentsOfFile: path) {
 				json = JSON(data: data, options: .AllowFragments, error: nil)
 			}
 		}
+		
+		// Change navigation bar background color and text color.
+		self.navigationController?.navigationBar.barStyle	= .BlackTranslucent
 	}
 
 	override func didReceiveMemoryWarning() {
@@ -67,6 +71,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 					// Activitiy.
 					cell.textLabel?.text				= activity
 					cell.detailTextLabel?.text	= "\(activities[indexPath.row]["time"].string!) [\(activities[indexPath.row]["place"].string!)]"
+					cell.accessoryType					= .DisclosureIndicator
+					cell.selectionStyle					= .Default
+					cell.userInteractionEnabled	= true
 				} else if let _ = activities[indexPath.row]["coffee"].bool {
 					// Coffee Break.
 					/*
