@@ -20,8 +20,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		super.viewDidLoad()
 		
 		// Set 'ViewController' as 'tableView' delegate.
-		tableView.delegate		= self
-		tableView.dataSource	= self
+		tableView.delegate				= self
+		tableView.dataSource			= self
 		
 		// Load 'agenda.json' file.
 		if let path = NSBundle.mainBundle().pathForResource("agenda", ofType: "json") {

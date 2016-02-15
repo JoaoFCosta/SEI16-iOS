@@ -10,14 +10,28 @@ import UIKit
 import SwiftyJSON
 
 class DetailViewController: UITableViewController {
-	let titles: [Int:String]	= [0:"Atividade",1:"Horário",2:"Local",3:"Descrição"]
+	@IBOutlet weak var activityNameLabel:						UILabel!
+	@IBOutlet weak var activityTimeLabel:						UILabel!
+	@IBOutlet weak var activityLocationLabel:				UILabel!
+	@IBOutlet weak var activityDescriptionTextView: UITextView!
+	
+	let titles: [Int:String]	= [0:"Atividade",1:"Descrição"]
 	var json: [String: JSON]?	= Dictionary<String,JSON>?()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		// Change navigation bar appearance.
 		self.navigationController?.navigationBar.barStyle		= .BlackTranslucent
 		self.navigationController?.navigationBar.tintColor	= UIColor.whiteColor()
+		
+		// Set activity details.
+		if let json = json {
+			activityNameLabel.text						= json["name"]!.string!
+			activityTimeLabel.text						= json["time"]!.string!
+			activityLocationLabel.text				= json["place"]!.string!
+			activityDescriptionTextView.text	= json["text"]!.string!
+		}
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -27,34 +41,8 @@ class DetailViewController: UITableViewController {
 	
 	// MARK: - Table view data source
 	
-	override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-		if json != nil { return 4 }
-		return 0
-	}
-	
-	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 1
-	}
-	
 	override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 		return titles[section]
-	}
-	
-	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCellWithIdentifier("DetailCell", forIndexPath: indexPath)
-		
-		switch (indexPath.section) {
-		case 0:
-			cell.textLabel?.numberOfLines	= 0
-			cell.textLabel?.text					= json!["name"]!.string!
-		case 1:		cell.textLabel?.text	= json!["time"]!.string!
-		case 2:		cell.textLabel?.text	= json!["place"]!.string!
-		default:
-			cell.textLabel?.numberOfLines	= 0
-			cell.textLabel?.text					= json!["text"]!.string!
-		}
-		
-		return cell
 	}
 	
 	/*
