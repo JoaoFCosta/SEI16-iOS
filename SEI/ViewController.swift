@@ -62,18 +62,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	}
 	
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("ActivityCell",
-			forIndexPath: indexPath)
+		let cell: ActivityTableViewCell = tableView.dequeueReusableCellWithIdentifier("ActivityCell",
+			forIndexPath: indexPath) as! ActivityTableViewCell
 		
 		if let json = json {
 			if let activities = json[indexPath.section]["activities"].array {
 				if let activity = activities[indexPath.row]["name"].string {
 					// Activitiy.
-					cell.textLabel?.text				= activity
-					cell.detailTextLabel?.text	= "\(activities[indexPath.row]["time"].string!) [\(activities[indexPath.row]["place"].string!)]"
+					cell.activityName.text			= activity
+					cell.activityTime.text			= activities[indexPath.row]["time"].string!
+					cell.activityLocal.text			= activities[indexPath.row]["place"].string!
 					cell.accessoryType					= .DisclosureIndicator
 					cell.selectionStyle					= .Default
 					cell.userInteractionEnabled	= true
+					cell.addButton.hidden				= false
 				} else if let _ = activities[indexPath.row]["coffee"].bool {
 					// Coffee Break.
 					/*
@@ -87,12 +89,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
           */
 					
 					// cell.detailTextLabel?.text	= "\(timeBefore) - \(timeAfter)"
-					cell.textLabel?.text				= "Coffe Break"
-					cell.detailTextLabel?.text	= ""
+					cell.activityName.text			= "Coffee Break"
+					cell.activityTime.text			= ""
+					cell.activityLocal.text			= ""
 					// Remove user interaction with this cell.
 					cell.accessoryType					= .None
 					cell.selectionStyle					= .None
 					cell.userInteractionEnabled	= false
+					cell.addButton.hidden				= true
 					
 				} else if let _ = activities[indexPath.row]["meal"].bool {
 					// Meal, can be lunch or dinner.
@@ -104,13 +108,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 						*/
 						
 						if (times[1] as NSString).doubleValue <= 13.0 {
-							cell.textLabel?.text	= "Almoço"
+							cell.activityName.text	= "Almoço"
 						} else {
-							cell.textLabel?.text	= "Jantar"
+							cell.activityName.text	= "Jantar"
 						}
   					//cell.detailTextLabel?.text	= "\(timeBefore) - \(timeAfter)"
   					cell.accessoryType					= UITableViewCellAccessoryType.None
-						cell.detailTextLabel?.text	= ""
+						cell.activityTime.text			= ""
+						cell.activityLocal.text			= ""
+						cell.addButton.hidden				= true
 						// Remove user interaction with this cell.
   					cell.accessoryType					= .None
   					cell.selectionStyle					= .None
@@ -120,6 +126,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 			}
 		}
 		return cell
+	}
+	
+	func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+		if let json = json {
+			if let activites = json[indexPath.section]["activities"].array {
+				if let _ = activites[indexPath.row]["meal"].bool { return 40.0 }
+				else if let _ = activites[indexPath.row]["coffee"].bool { return 40.0 }
+			}
+		}
+		return 71.0
 	}
 	
 	func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

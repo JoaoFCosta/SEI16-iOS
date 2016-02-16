@@ -15,31 +15,60 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ActivityCell" textLabel="zfQ-vU-fp8" detailTextLabel="Vlz-kK-kHt" style="IBUITableViewCellStyleSubtitle" id="2kN-qV-IsJ">
-                                <rect key="frame" x="0.0" y="114" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ActivityCell" rowHeight="71" id="2kN-qV-IsJ" customClass="ActivityTableViewCell" customModule="SEI" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="114" width="600" height="71"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2kN-qV-IsJ" id="KKh-rK-eOA">
-                                    <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zfQ-vU-fp8">
-                                            <rect key="frame" x="15" y="5" width="32" height="20"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ua-OK-vsb">
+                                            <rect key="frame" x="57" y="8" width="510" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Vlz-kK-kHt">
-                                            <rect key="frame" x="15" y="25" width="41" height="14"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htq-e0-mhj">
+                                            <rect key="frame" x="57" y="28" width="510" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZQ-g6-00m">
+                                            <rect key="frame" x="57" y="44" width="510" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HSZ-tr-CNu">
+                                            <rect key="frame" x="16" y="23" width="22" height="22"/>
+                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="addToAgenda:" destination="2kN-qV-IsJ" eventType="touchUpInside" id="9rR-PQ-oqM"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="htq-e0-mhj" firstAttribute="top" secondItem="KKh-rK-eOA" secondAttribute="topMargin" constant="20" id="9Zg-05-Ssj"/>
+                                        <constraint firstItem="0ua-OK-vsb" firstAttribute="top" secondItem="KKh-rK-eOA" secondAttribute="topMargin" id="BnE-6h-TOJ"/>
+                                        <constraint firstItem="AZQ-g6-00m" firstAttribute="leading" secondItem="KKh-rK-eOA" secondAttribute="leadingMargin" constant="49" id="I0A-Ab-SNs"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="AZQ-g6-00m" secondAttribute="trailing" constant="-8" id="XXq-hy-w3m"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="htq-e0-mhj" secondAttribute="trailing" constant="-8" id="ZHE-yK-kIO"/>
+                                        <constraint firstItem="0ua-OK-vsb" firstAttribute="leading" secondItem="KKh-rK-eOA" secondAttribute="leadingMargin" constant="49" id="a38-Zl-Jki"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="0ua-OK-vsb" secondAttribute="trailing" constant="-8" id="cXY-Su-ofc"/>
+                                        <constraint firstItem="htq-e0-mhj" firstAttribute="leading" secondItem="KKh-rK-eOA" secondAttribute="leadingMargin" constant="49" id="he8-Ba-CKt"/>
+                                        <constraint firstItem="HSZ-tr-CNu" firstAttribute="top" secondItem="KKh-rK-eOA" secondAttribute="topMargin" constant="15" id="l1h-Sl-VcZ"/>
+                                        <constraint firstItem="HSZ-tr-CNu" firstAttribute="leading" secondItem="KKh-rK-eOA" secondAttribute="leadingMargin" constant="8" id="pia-Ng-L32"/>
+                                        <constraint firstItem="htq-e0-mhj" firstAttribute="leading" secondItem="HSZ-tr-CNu" secondAttribute="trailing" constant="19" id="wdG-hw-JCr"/>
+                                        <constraint firstItem="AZQ-g6-00m" firstAttribute="top" secondItem="0ua-OK-vsb" secondAttribute="bottom" constant="15" id="wzD-Wf-KMZ"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.086274509803921567" green="0.50980392156862742" blue="0.83137254901960778" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
+                                    <outlet property="activityLocal" destination="AZQ-g6-00m" id="Dgf-JH-K7h"/>
+                                    <outlet property="activityName" destination="0ua-OK-vsb" id="Oy2-EE-GGj"/>
+                                    <outlet property="activityTime" destination="htq-e0-mhj" id="zzQ-vw-caS"/>
+                                    <outlet property="addButton" destination="HSZ-tr-CNu" id="KnO-Wz-mwp"/>
                                     <segue destination="9rC-p3-OVo" kind="show" id="vm4-hE-Srb"/>
                                 </connections>
                             </tableViewCell>

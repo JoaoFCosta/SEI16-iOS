@@ -16,6 +16,7 @@
 		EF7AD0FF1C6D3B2A00CBB225 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF7AD0FE1C6D3B2A00CBB225 /* Assets.xcassets */; };
 		EF7AD1021C6D3B2A00CBB225 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF7AD1001C6D3B2A00CBB225 /* LaunchScreen.storyboard */; };
 		EF7AD10B1C6D3CFD00CBB225 /* logo_sei-7d7a9f7befffdaf13943299feb53ec79edd91fa1040188d263fe17da8b2996ed.png in Resources */ = {isa = PBXBuildFile; fileRef = EF7AD10A1C6D3CFD00CBB225 /* logo_sei-7d7a9f7befffdaf13943299feb53ec79edd91fa1040188d263fe17da8b2996ed.png */; };
+		EF9DF1111C73E4B700586E44 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9DF1101C73E4B700586E44 /* ActivityTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		EF7AD1011C6D3B2A00CBB225 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EF7AD1031C6D3B2A00CBB225 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF7AD10A1C6D3CFD00CBB225 /* logo_sei-7d7a9f7befffdaf13943299feb53ec79edd91fa1040188d263fe17da8b2996ed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo_sei-7d7a9f7befffdaf13943299feb53ec79edd91fa1040188d263fe17da8b2996ed.png"; path = "../../../../../Downloads/logo_sei-7d7a9f7befffdaf13943299feb53ec79edd91fa1040188d263fe17da8b2996ed.png"; sourceTree = "<group>"; };
+		EF9DF1101C73E4B700586E44 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				EF7AD0F91C6D3B2A00CBB225 /* ViewController.swift */,
 				EF2AAEB51C6D57660002274C /* DetailViewController.swift */,
 				EF7AD0FB1C6D3B2A00CBB225 /* Main.storyboard */,
+				EF9DF1101C73E4B700586E44 /* ActivityTableViewCell.swift */,
 				EF7AD0FE1C6D3B2A00CBB225 /* Assets.xcassets */,
 				EF7AD1001C6D3B2A00CBB225 /* LaunchScreen.storyboard */,
 				EF7AD1031C6D3B2A00CBB225 /* Info.plist */,
@@ -232,6 +235,7 @@
 			files = (
 				EF2AAEB61C6D57660002274C /* DetailViewController.swift in Sources */,
 				EF7AD0FA1C6D3B2A00CBB225 /* ViewController.swift in Sources */,
+				EF9DF1111C73E4B700586E44 /* ActivityTableViewCell.swift in Sources */,
 				EF7AD0F81C6D3B2A00CBB225 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
